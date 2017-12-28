@@ -1,31 +1,37 @@
+/**
+ * Copyright 2017 - Author gauravm.git@gmail.com
+ */
+
 import './globals';
 
 // Import Test module.
-import { default as Test, loopAsync } from './test-module';
 import { SerializedAsync, SerializedAsync2 } from './async-utils';
+import { default as Test, loopAsync } from './test-module';
 
 import * as express from 'express';
 
 // Import ends.
+
+const log = console.log;
 
 const app = express();
 
 app.use(express.static(global.clientSrc));
 
 app.listen(80, () => {
-  console.log('Server started on port 80');
+  log('Server started on port 80');
 });
 
 // region - Test code execution.
 
 // region - Loop async test
-let out = '';
+const out = '';
 let reverse = 5;
 function testP(id: number, name: string): Promise<any> {
   return new Promise((res) => {
 
     setTimeout(() => {
-      console.log('testP' + out, id, name);
+      log('testP' + out, id, name);
       if (out.length) {
         res(id + '' + reverse--);
       } else {
@@ -68,7 +74,7 @@ function argsLoopAsync(cItr: number): any[] {
 //   until: argsArr.length
 // })
 //   .then((result: any[]) => {
-//     console.log(result);
+//     log(result);
 //   })
 //   .then(() => {
 //     out = '1';
@@ -79,13 +85,13 @@ function argsLoopAsync(cItr: number): any[] {
 //     });
 //   })
 //   .then((result: any[]) => {
-//     console.log(result);
+//     log(result);
 //   });
 
 // const serializedAsync2 = new SerializedAsync2();
 // serializedAsync2.push(1, 2, 3, 4);
 // serializedAsync2.asyncEach((val: number, index: number, arr: any[], resume: any) => {
-//   console.log(val);
+//   log(val);
 //   testP(index, index + '-' + index)
 //     .then(resume);
 // });
@@ -158,7 +164,7 @@ Array.prototype.asyncEach = function <T>(iterator: (value: T, index: number, res
 };
 
 // [1, 2, 3, 4].asyncEach((value, index, resume) => {
-//   console.log(value);
+//   log(value);
 //   resume();
 // });
 
@@ -177,7 +183,7 @@ const testClass = new Test();
 const one = testClass.testB('Hi');
 
 one
-  .subscribe((val) => console.log(val));
+  .subscribe((val) => log(val));
 
 // testClass.addToB(one)
 //   .subscribe((val) => console.log(val));

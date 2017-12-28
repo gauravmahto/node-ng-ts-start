@@ -1,3 +1,7 @@
+/**
+ * Copyright 2017 - Author gauravm.git@gmail.com
+ */
+
 // Angular
 import '@angular/common';
 import '@angular/core';

@@ -1,4 +1,8 @@
 /**
+ * Copyright 2017 - Author gauravm.git@gmail.com
+ */
+
+/**
  * This file includes polyfills needed by Angular and is loaded before the app.
  * You can add your own extra polyfills to this file.
  *
@@ -19,7 +23,7 @@
  */
 
 /**
- * IE9, IE10 and IE11 requires all of the following polyfills. 
+ * IE9, IE10 and IE11 requires all of the following polyfills.
  */
 // import 'core-js/es6/symbol';
 // import 'core-js/es6/object';
@@ -74,6 +78,6 @@ if (process.env.ENV === 'production') {
   // Production
 } else {
   // Development and test
-  Error['stackTraceLimit'] = Infinity;
-  require('zone.js/dist/long-stack-trace-zone');
+  Error.stackTraceLimit = Infinity;
+  require('zone.js/dist/long-stack-trace-zone');  // tslint:disable-line
 }

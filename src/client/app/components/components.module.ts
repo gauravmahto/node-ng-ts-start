@@ -1,3 +1,7 @@
+/**
+ * Copyright 2017 - Author gauravm.git@gmail.com
+ */
+
 import { NgModule } from '@angular/core';
 import { SharedModule } from 'App/shared/shared.module';
 

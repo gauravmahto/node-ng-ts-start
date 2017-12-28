@@ -1,4 +1,10 @@
+/**
+ * Copyright 2017 - Author gauravm.git@gmail.com
+ */
+
 import * as Rx from 'rxjs';
+
+const log = console.log;
 
 function getPromise<T>(resolveAfter: number, ...args: any[]): Promise<T> {
 
@@ -24,10 +30,10 @@ export default class {
     observable: Rx.Observable<number>
   } {
 
-    console.log('Test-A');
+    log('Test-A');
 
     const o = this.testSubject.map((val: number) => {
-      console.log(val);
+      log(val);
 
       return val;
     });
@@ -44,7 +50,8 @@ export default class {
     this.queue.push(this.getObservable<T>(data));
 
     const a = new Rx.BehaviorSubject<any>(() => this.getObservable<T>(data));
-    a.subscribe((d) => d().subscribe((d) => console.log(d))
+    a.subscribe((d) => d().subscribe((e: any) => log(e)));
+
     return this.processQueue();
   }
 

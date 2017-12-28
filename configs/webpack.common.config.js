@@ -1,3 +1,7 @@
+/**
+ * Copyright 2017 - Author gauravm.git@gmail.com
+ */
+
 const root = require('./helpers').root;
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
