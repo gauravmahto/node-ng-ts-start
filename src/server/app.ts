@@ -191,3 +191,18 @@ one
 // endregion - Observable
 
 // endregion - Test code execution.
+
+// region - Type test
+
+class Test { }
+
+function create<T>(ctor: { new(): T }) {
+  return new ctor();
+}
+const c = create(Test); // c: Test
+
+function isReallyInstanceOf<T>(ctor: { new(...args: any[]): T }, obj: T) {
+  return obj instanceof ctor;
+}
+
+// endregion - Type test
