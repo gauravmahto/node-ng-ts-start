@@ -14,5 +14,5 @@ declare module NodeJS {
 }
 
 declare interface Array<T> {
-  asyncEach: <T>(iterator: (value: T, index: number, resume: () => void) => void) => void;
+  asyncEach(iterator: (value: T, index: number, resume: () => void) => void): void;
 }

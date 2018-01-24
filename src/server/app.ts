@@ -194,12 +194,12 @@ one
 
 // region - Type test
 
-class Test { }
+class TestClass { }
 
 function create<T>(ctor: { new(): T }) {
   return new ctor();
 }
-const c = create(Test); // c: Test
+const c = create(TestClass); // c: Test
 
 function isReallyInstanceOf<T>(ctor: { new(...args: any[]): T }, obj: T) {
   return obj instanceof ctor;
