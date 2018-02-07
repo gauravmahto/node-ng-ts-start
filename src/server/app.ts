@@ -8,7 +8,7 @@ import './globals';
 import { SerializedAsync, SerializedAsync2 } from './async-utils';
 import { default as Test, loopAsync } from './test-module';
 
-import * as express from 'express';
+import express from 'express';
 
 // Import ends.
 
