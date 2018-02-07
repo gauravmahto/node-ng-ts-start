@@ -206,3 +206,32 @@ function isReallyInstanceOf<T>(ctor: { new(...args: any[]): T }, obj: T) {
 }
 
 // endregion - Type test
+
+// //type pluck<T, K extends keyof T> = (o: T, names: K[]): Array<T[K]>
+
+// interface Person {
+//   name: string;
+//   age: number;
+// }
+// const person: Person = {
+//   name: 'Jarid',
+//   age: 35
+// };
+// //const strings: string[] = pluck(person, ['name', 'age']);
+
+let inputChunks: string = '';
+process.stdin.setEncoding('utf8');
+
+process.stdin.on('readable', () => {
+  const chunk = process.stdin.read();
+  if (chunk !== null) {
+    inputChunks += chunk;
+  }
+});
+
+process.stdin.on('end', () => {
+  const parsedData = JSON.parse(inputChunks);
+  const outputJSON = JSON.stringify(parsedData, null, '    ');
+  process.stdout.write(outputJSON);
+  process.stdout.write('\n');
+});
