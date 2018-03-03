@@ -1,5 +1,5 @@
 /**
- * Copyright 2017 - Author gauravm.git@gmail.com
+ * Copyright 2018 - Author gauravm.git@gmail.com
  */
 
 import './globals';
@@ -17,6 +17,12 @@ const log = console.log;
 const app = express();
 
 app.use(express.static(global.clientSrc));
+
+app.get('/ping', ({ }, res: express.Response) => {
+
+  res.send('Ping success.');
+
+});
 
 app.listen(80, () => {
   log('Server started on port 80');
@@ -230,8 +236,13 @@ process.stdin.on('readable', () => {
 });
 
 process.stdin.on('end', () => {
-  const parsedData = JSON.parse(inputChunks);
-  const outputJSON = JSON.stringify(parsedData, null, '    ');
-  process.stdout.write(outputJSON);
+  let output;
+  try {
+    const parsedData = JSON.parse(inputChunks);
+    output = JSON.stringify(parsedData, null, '    ');
+  } catch (err) {
+    output = inputChunks;
+  }
+  process.stdout.write('Out: ', output);
   process.stdout.write('\n');
 });

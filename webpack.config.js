@@ -1,11 +1,13 @@
-let webPackConfig;
+/**
+ * Copyright 2018 - Author gauravm.git@gmail.com
+ */
 
-if (process.env.ENV === 'production') {
-  // Production
-  webPackConfig = require('./configs/webpack.prod.config.js');
-} else {
-  // Development and test
-  webPackConfig = require('./configs/webpack.dev.config.js');
-}
-
-module.exports = webPackConfig;
+module.exports = (env, argv) => {
+  if (env.production) {
+    // Production
+    return require('./configs/webpack.prod.config.js');
+  } else {
+    // Development and test
+    return require('./configs/webpack.dev.config.js');
+  }
+};

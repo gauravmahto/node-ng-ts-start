@@ -8,8 +8,11 @@
         "url": "git+https://github.com/gauravmahto/node-ng-ts-start.git"
     },
     "scripts": {
+        "start-server": "node bin/server/app.js",
         "start-server-watch": "nodemon bin/server/app.js",
+        "server-compile": "tsc -p src/server & exit 0",
         "server-compile-watch": "tsc -p src/server -w",
+        "client-compile": "webpack --env.production --config webpack.config.js",
         "client-compile-watch": "webpack --config webpack.config.js"
     },
     "nodemonConfig": {
